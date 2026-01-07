@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Thiết kế Website động</title>
+    <style>
+        /* --- CSS TỔNG THỂ --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f0f2f5; display: flex; flex-direction: column; min-height: 100vh; }
+
+        /* Header */
+        .header { background-color: #1e293b; color: #ffffff; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 2.5rem; color: #22d3ee; margin-bottom: 10px; }
+
+        /* Menu điều hướng */
+        .home-menu {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; padding: 50px 20px; gap: 20px;
+        }
+
+        .home-menu a {
+            display: block; width: 100%; max-width: 400px; padding: 20px;
+            text-align: center; text-decoration: none; background-color: #ffffff;
+            color: #334155; font-weight: bold; border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease;
+        }
+
+        /* Hiệu ứng Hover chuyên nghiệp */
+        .home-menu a:hover {
+            background-color: #22d3ee; color: #ffffff;
+            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
+        }
+
+        /* Footer */
+        .footer { background-color: #1e293b; color: #94a3b8; padding: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>Thiết kế Website động</h1>
+    <p>Bài thực hành CSS Animation & Transition</p>
+</header>
+
+<nav class="home-menu">
+    <a href="lab1.html">Lab 1 - CSS Hover & Transition</a>
+    <a href="lab-2.html">Lab 2 - Keyframes & Animation</a>
+    <a href="#">Lab 3 - Coming Soon</a>
+    <a href="#">Lab 4 - Coming Soon</a>
+</nav>
+
+<footer class="footer">
+    <p>&copy; 2026 hnvh - Chúc bạn học tốt!</p>
+</footer>
+
+</body>
+</html>

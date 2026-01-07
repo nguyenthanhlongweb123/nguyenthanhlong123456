@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 - Full Animation Exercises</title>
+    <style>
+        /* --- CẤU TRÚC NỀN TẢNG --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f0f2f5; color: #333; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        
+        /* Phân cách các bài bằng đường kẻ đứt giống mẫu */
+        .lesson { padding: 50px 0; text-align: center; border-bottom: 2px dashed #ccc; }
+        .lesson:last-child { border-bottom: none; }
+        h2 { font-size: 22px; margin-bottom: 35px; color: #444; }
+
+        /* --- BÀI 1: MARQUEE TEXT (CHỮ CHẠY) --- */
+        .marquee-box { border: 2px solid #ff0000; background: #000; padding: 25px 0; overflow: hidden; }
+        .marquee-content { display: inline-block; white-space: nowrap; animation: runText 12s linear infinite; }
+        .marquee-content span { font-size: 26px; font-weight: bold; color: #ffcc00; padding: 0 50px; }
+        @keyframes runText { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+        /* --- BÀI 2: ROTATE BOX (KHỐI XOAY) --- */
+        .box-wrapper { height: 160px; display: flex; justify-content: center; align-items: center; }
+        .blue-box { 
+            width: 110px; height: 110px; background: #3498db; border: 4px solid #fff; 
+            border-radius: 12px; box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            animation: rotateBox 4s linear infinite; 
+        }
+        @keyframes rotateBox { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* --- BÀI 3: FADE-IN SEQUENCE (CHUỖI ẢNH HIỆN DẦN) --- */
+        .gallery { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .gallery img { 
+            width: 250px; height: 160px; object-fit: cover; border-radius: 8px; 
+            opacity: 0; animation: fadeInItem 1s ease forwards;
+        }
+        .d1 { animation-delay: 0.5s; }
+        .d2 { animation-delay: 1.2s; }
+        .d3 { animation-delay: 1.9s; }
+        @keyframes fadeInItem { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- BÀI 4: CALL TO ACTION (NÚT NHẤP NHÁY) --- */
+        .btn-cta { 
+            display: inline-block; padding: 16px 45px; background: #f26522; color: #fff; 
+            text-decoration: none; font-weight: bold; font-size: 18px; border-radius: 6px;
+            animation: pulseBtn 1.5s infinite; transition: 0.3s;
+        }
+        @keyframes pulseBtn {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 101, 34, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(242, 101, 34, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 101, 34, 0); }
+        }
+
+        /* --- BÀI 5: IMAGE SLIDE-IN (ẢNH TRƯỢT VÀO) --- */
+        .slide-container { display: flex; justify-content: center; gap: 25px; overflow: hidden; }
+        .slide-card { 
+            width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            opacity: 0; transform: translateX(-120px); animation: slideLeft 1s ease-out forwards;
+        }
+        .slide-card img { width: 100%; transition: 0.6s; }
+        .slide-card:hover img { transform: scale(1.1); }
+        .s2 { animation-delay: 0.4s; }
+        @keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="lesson">
+            <h2>Bài 1: Marquee Text</h2>
+            <div class="marquee-box">
+                <div class="marquee-content">
+                    <span>Hello everyone! Welcome to our website! Chào mừng bạn đến với Animation Lab.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 2: Rotate Box</h2>
+            <div class="box-wrapper">
+                <div class="blue-box"></div>
+            </div>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 3: Fade-in Sequence</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" class="d1" alt="Ảnh 1">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e" class="d2" alt="Ảnh 2">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" class="d3" alt="Ảnh 3">
+            </div>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 4: Call to Action</h2>
+            <a href="#" class="btn-cta">MUA NGAY</a>
+        </div>
+
+        <div class="lesson">
+            <h2>Bài 5: Image Slide-in & Hover</h2>
+            <div class="slide-container">
+                <div class="slide-card s1">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Slide 1">
+                </div>
+                <div class="slide-card s2">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Slide 2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

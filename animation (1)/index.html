@@ -2,125 +2,159 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>NGUYỄN THÀNH LONG - TRANG CHỦ WEB</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYỄN THÀNH LONG - HOME</title>
     <style>
+        /* --- CSS RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            margin: 0;
-            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e; /* Nền tối hiện đại */
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
         }
 
         header {
-            background: linear-gradient(135deg, #007bff, #ff5722);
-            color: white;
-            padding: 40px 20px;
             text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease-out;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 32px;
+            font-size: 2.8rem;
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         header p {
-            margin-top: 10px;
-            font-size: 18px;
+            margin-top: 15px;
+            color: #94a3b8;
+            font-size: 1.2rem;
         }
 
+        /* --- GRID CARDS --- */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .lab-list {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
         }
 
-        .lab-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
+        .card {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 20px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out both;
         }
 
-        .lab-card:hover {
-            transform: translateY(-10px);
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: #4ecca3;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
-        .lab-card h2 {
-            margin-bottom: 10px;
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #4ecca3;
         }
 
-        .lab-card p {
-            color: #555;
+        .card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 20px;
         }
 
-        .lab-card a {
-            display: inline-block;
-            padding: 10px 20px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: 0.3s;
+        .card-number {
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 5rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
         }
 
-        .lab-card a:hover {
-            background: #ff5722;
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #4ecca3;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 10px #4ecca3;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: white;
-            margin-top: 40px;
+            margin-top: auto;
+            padding: 50px 0 20px;
+            color: #64748b;
+            font-size: 0.9rem;
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <h1>NGUYỄN THÀNH LONG</h1>
-    <p>Trang chủ bài tập Web</p>
-</header>
+    <header>
+        <h1>My Assignments</h1>
+        <p>Nguyễn Thành Long | Lớp WE-MĐ06</p>
+    </header>
 
-<div class="container">
-    <div class="lab-list">
+    <main class="container">
 
-        <div class="lab-card">
-            <h2>Bài 1</h2>
-            <p>Button, Gallery cơ bản</p>
-            <a href="b1.html">Vào bài</a>
-        </div>
+        <a href="b1.html" class="card" style="animation-delay: 0.1s;">
+            <div class="card-number">01</div>
+            <h2>B1 HTML</h2>
+            <p><span class="status-dot"></span>Bài tập b1 - Cấu trúc HTML cơ bản.</p>
+            <strong>View Project →</strong>
+        </a>
 
-        <div class="lab-card">
-            <h2>Lab 1</h2>
-            <p>CSS Transition & Animation</p>
-            <a href="lab1.html">Vào bài</a>
-        </div>
+        <a href="lab1.html" class="card" style="animation-delay: 0.3s;">
+            <div class="card-number">02</div>
+            <h2>LAB 1</h2>
+            <p><span class="status-dot"></span>Transitions & Animations: Hover effects, Gallery, Cards.</p>
+            <strong>View Project →</strong>
+        </a>
 
-        <div class="lab-card">
-            <h2>Lab 2</h2>
-            <p>CSS nâng cao</p>
-            <a href="lab2.html">Vào bài</a>
-        </div>
+        <a href="lab2.html" class="card" style="animation-delay: 0.5s;">
+            <div class="card-number">03</div>
+            <h2>LAB 2</h2>
+            <p><span class="status-dot"></span>CSS Keyframes: Marquee, Rotate, Fade-in, Slider.</p>
+            <strong>View Project →</strong>
+        </a>
 
-    </div>
-</div>
+    </main>
 
-<footer>
-    © 2026 NGUYỄN THÀNH LONG
-</footer>
+    <footer>
+        © 2026 NGUYENTHANHLONG - Portfolio Assignment
+    </footer>
 
 </body>
 </html>

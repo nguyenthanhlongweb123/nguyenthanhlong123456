@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYEN THANH LONG - LAB 2</title>
+    <style>
+        /* --- GIAO DIỆN TỔNG THỂ --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        h1 { color: #333; margin-bottom: 30px; font-size: 2rem; }
+        .section-box { margin-bottom: 60px; }
+        .lesson-title { font-size: 1.5rem; font-weight: bold; color: #333; margin-bottom: 25px; }
+
+        /* KEYFRAMES ĐỔI MÀU CHUNG (Dùng cho nhiều bài) */
+        @keyframes colorCycle {
+            0% { color: #3498db; background-color: #3498db; border-color: #3498db; }
+            25% { color: #e74c3c; background-color: #e74c3c; border-color: #e74c3c; }
+            50% { color: #f1c40f; background-color: #f1c40f; border-color: #f1c40f; }
+            75% { color: #9b59b6; background-color: #9b59b6; border-color: #9b59b6; }
+            100% { color: #2ecc71; background-color: #2ecc71; border-color: #2ecc71; }
+        }
+
+        /* --- LESSON 1: MARQUEE --- */
+        .marquee-wrapper {
+            background: #eee;
+            padding: 15px 0;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+        .marquee-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            font-weight: 500;
+            animation: marqueeMove 15s linear infinite, colorText 8s infinite alternate;
+        }
+        @keyframes marqueeMove { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        @keyframes colorText {
+            0% { color: #1abc9c; } 50% { color: #3498db; } 100% { color: #e74c3c; }
+        }
+
+        /* --- LESSON 2: ROTATE LOOP --- */
+        .rotate-group {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 40px 0;
+        }
+        .square {
+            width: 80px;
+            height: 80px;
+            animation: rotateMe 4s linear infinite, colorCycle 10s infinite alternate;
+        }
+        .square:nth-child(2) { animation-delay: 0.3s; }
+        .square:nth-child(3) { animation-delay: 0.6s; }
+        .square:nth-child(4) { animation-delay: 0.9s; }
+        @keyframes rotateMe { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        /* --- LESSON 3: FADE-IN SEQUENCE --- */
+        .fade-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        .fade-img {
+            width: 32%;
+            border-radius: 8px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        .fade-img:nth-child(2) { animation-delay: 0.5s; }
+        .fade-img:nth-child(3) { animation-delay: 1s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- LESSON 4: FLASHING BUTTON --- */
+        .btn-wrap { text-align: center; padding: 20px; }
+        .btn-flash {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: white;
+            background-color: #e67e22;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            animation: flashPulse 1.5s infinite;
+        }
+        @keyframes flashPulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(0.95); box-shadow: 0 0 20px rgba(230, 126, 34, 0.6); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* --- LESSON 5: AUTOMATIC SLIDER --- */
+        .slider-frame {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .slider-track {
+            display: flex;
+            width: 300%;
+            animation: slideAuto 12s infinite;
+        }
+        .slider-track img { width: 100%; height: 300px; object-fit: cover; }
+        @keyframes slideAuto {
+            0%, 25% { transform: translateX(0); }
+            33%, 58% { transform: translateX(-33.33%); }
+            66%, 91% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>NGUYÊN THÀNH LONG - LAB 2</h1>
+
+    <section class="section-box">
+        <div class="lesson-title">Lesson 1: Horizontal Text (Basic Marquee)</div>
+        <div class="marquee-wrapper">
+            <div class="marquee-text">This is a continuous horizontal inscription from right to left, like the old marquee effect.</div>
+        </div>
+    </section>
+
+    <section class="section-box">
+        <div class="lesson-title">Lesson 2: Rotate loop</div>
+        <div class="rotate-group">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+    </section>
+
+    <section class="section-box">
+        <div class="lesson-title">Lesson 3: Fade-in sequence</div>
+        <div class="fade-group">
+            <img src="app/assets/images/product1.jpg" class="fade-img" alt="Nature 1">
+            <img src="app/assets/images/product2.jpg" class="fade-img" alt="Nature 2">
+            <img src="app/assets/images/product3.jpg" class="fade-img" alt="Nature 3">
+        </div>
+    </section>
+
+    <section class="section-box">
+        <div class="lesson-title">Lesson 4: Flashing Button (Call to Action)</div>
+        <div class="btn-wrap">
+            <button class="btn-flash">Buy Now</button>
+        </div>
+    </section>
+
+    <section class="section-box">
+        <div class="lesson-title">Lesson 5: Automatic Image Slider with CSS</div>
+        <div class="slider-frame">
+            <div class="slider-track">
+                <img src="app/assets/images/product1.jpg" alt="Slide 1">
+                <img src="app/assets/images/product2.jpg" alt="Slide 2">
+                <img src="app/assets/images/product3.jpg" alt="Slide 3">
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

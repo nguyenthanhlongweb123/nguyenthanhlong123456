@@ -2,56 +2,124 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang chủ - Thiết kế Website động</title>
+    <title>NGUYỄN THÀNH LONG - TRANG CHỦ WEB</title>
+
     <style>
-        /* --- CSS TỔNG THỂ --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background-color: #f0f2f5; display: flex; flex-direction: column; min-height: 100vh; }
-
-        /* Header */
-        .header { background-color: #1e293b; color: #ffffff; padding: 40px 20px; text-align: center; }
-        .header h1 { font-size: 2.5rem; color: #22d3ee; margin-bottom: 10px; }
-
-        /* Menu điều hướng */
-        .home-menu {
-            flex: 1; display: flex; flex-direction: column;
-            align-items: center; padding: 50px 20px; gap: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
         }
 
-        .home-menu a {
-            display: block; width: 100%; max-width: 400px; padding: 20px;
-            text-align: center; text-decoration: none; background-color: #ffffff;
-            color: #334155; font-weight: bold; border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s ease;
+        header {
+            background: linear-gradient(135deg, #007bff, #ff5722);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
         }
 
-        /* Hiệu ứng Hover chuyên nghiệp */
-        .home-menu a:hover {
-            background-color: #22d3ee; color: #ffffff;
-            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
+        header h1 {
+            margin: 0;
+            font-size: 32px;
         }
 
-        /* Footer */
-        .footer { background-color: #1e293b; color: #94a3b8; padding: 20px; text-align: center; }
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .lab-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .lab-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .lab-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .lab-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .lab-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .lab-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .lab-card a:hover {
+            background: #ff5722;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+            margin-top: 40px;
+        }
     </style>
 </head>
+
 <body>
 
-<header class="header">
-    <h1>Thiết kế Website động</h1>
-    <p>Bài thực hành CSS Animation & Transition</p>
+<header>
+    <h1>NGUYỄN THÀNH LONG</h1>
+    <p>Trang chủ bài tập Web</p>
 </header>
 
-<nav class="home-menu">
-    <a href="lab1.html">Lab 1 - CSS Hover & Transition</a>
-    <a href="lab-2.html">Lab 2 - Keyframes & Animation</a>
-    <a href="#">Lab 3 - Coming Soon</a>
-    <a href="#">Lab 4 - Coming Soon</a>
-</nav>
+<div class="container">
+    <div class="lab-list">
 
-<footer class="footer">
-    <p>&copy; 2026 hnvh - Chúc bạn học tốt!</p>
+        <div class="lab-card">
+            <h2>Bài 1</h2>
+            <p>Button, Gallery cơ bản</p>
+            <a href="b1.html">Vào bài</a>
+        </div>
+
+        <div class="lab-card">
+            <h2>Lab 1</h2>
+            <p>CSS Transition & Animation</p>
+            <a href="lab1.html">Vào bài</a>
+        </div>
+
+        <div class="lab-card">
+            <h2>Lab 2</h2>
+            <p>CSS nâng cao</p>
+            <a href="lab2.html">Vào bài</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2026 NGUYỄN THÀNH LONG
 </footer>
 
 </body>

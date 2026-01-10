@@ -1,89 +1,78 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Trang chủ bài Web</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
-      margin: 0;
-    }
-    header {
-      background: #2563eb;
-      color: white;
-      padding: 25px;
-      text-align: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    .labs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .lab {
-      background: white;
-      padding: 30px;
-      border-radius: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .lab h2 {
-      margin-bottom: 10px;
-    }
-    .lab p {
-      color: #475569;
-    }
-    .lab a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-    .lab a:hover {
-      background: #1e40af;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      color: #64748b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGUYEN THANH LONG - LAB 1</title>
+    <link rel="stylesheet" href="app/assets/css/style.css">
 </head>
 <body>
 
-  <header>
-    <h1>TRANG CHỦ BÀI WEB</h1>
-    <p>Danh sách bài thực hành Lab</p>
-  </header>
+<header class="main-header">
+    <h1>NGUYỄN THÀNH LONG - LAB 1</h1>
+</header>
 
-  <div class="container">
-    <div class="labs">
-      <div class="lab">
-        <h2>Lab 1</h2>
-        <p>HTML cơ bản</p>
-        <a href="lab1/index.html">Vào Lab 1</a>
-      </div>
+<main class="container">
 
-      <div class="lab">
-        <h2>Lab 2</h2>
-        <p>HTML + CSS</p>
-        <a href="lab2/index.html">Vào Lab 2</a>
-      </div>
+<section class="box">
+    <h2>Buttons</h2>
+    <div class="button-group">
+        <button class="btn">Button 1</button>
+        <button class="btn">Button 2</button>
+        <button class="btn">Button 3</button>
     </div>
-  </div>
+</section>
 
-  <footer>
-    © 2026 - Bài tập Web
-  </footer>
+<section class="box">
+    <h2>Gallery</h2>
+    <div class="image-gallery">
+        <img src="app/assets/images/arsenal_3.webp" alt="">
+        <img src="app/assets/images/product1.jpg" alt="">
+        <img src="app/assets/images/product2.jpg" alt="">
+        <img src="app/assets/images/product3.jpg" alt="">
+    </div>
+</section>
+
+<section class="box">
+    <h2>Menu</h2>
+    <nav class="nav-menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</section>
+
+<section class="box">
+    <h2>Cards</h2>
+    <div class="card-container">
+        <div class="product-card">
+            <img src="app/assets/images/ronaldo.webp" alt="">
+            <p>CR7 Jersey</p>
+        </div>
+        <div class="product-card">
+            <img src="app/assets/images/arsenal_3.webp" alt="">
+            <p>Arsenal Kit</p>
+        </div>
+        <div class="product-card">
+            <img src="app/assets/images/product1.jpg" alt="">
+            <p>Gear</p>
+        </div>
+    </div>
+</section>
+
+<section class="box">
+    <h2>Banner</h2>
+    <div class="hero-banner">
+        <h1 class="fade-text">Welcome</h1>
+    </div>
+</section>
+
+</main>
+
+<footer class="main-footer">
+    <p>© 2026 NGUYỄN THÀNH LONG</p>
+</footer>
 
 </body>
 </html>
-

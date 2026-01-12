@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGUYỄN THÀNH LONG - HOME</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,6 +58,7 @@
             color: #fff;
             transition: 0.4s;
             position: relative;
+            overflow: hidden;
         }
 
         .card:hover {
@@ -82,6 +84,7 @@
             right: 10px;
             font-size: 5rem;
             color: rgba(255,255,255,0.03);
+            z-index: 0;
         }
 
         footer {
@@ -107,24 +110,31 @@
 
 <main class="container">
 
-    <a href="b1.html" class="card">
+    <a href="b1.html" class="card" data-aos="fade-up">
         <div class="card-number">01</div>
         <h2>B1 HTML</h2>
         <p>Cấu trúc HTML cơ bản</p>
         <strong>View →</strong>
     </a>
 
-    <a href="lab1.html" class="card">
+    <a href="lab1.html" class="card" data-aos="fade-up" data-aos-delay="100">
         <div class="card-number">02</div>
-        <h2>LAB 1.html </h2>
+        <h2>LAB 1</h2>
         <p>Transition & Animation</p>
         <strong>View →</strong>
     </a>
 
-    <a href="lab2.html" class="card">
+    <a href="lab2.html" class="card" data-aos="fade-up" data-aos-delay="200">
         <div class="card-number">03</div>
         <h2>LAB 2</h2>
         <p>CSS Animation nâng cao</p>
+        <strong>View →</strong>
+    </a>
+
+    <a href="lab4.html" class="card" data-aos="fade-up" data-aos-delay="300">
+        <div class="card-number">04</div>
+        <h2>LAB 4</h2>
+        <p>JS Animation Libraries (AOS, GSAP)</p>
         <strong>View →</strong>
     </a>
 
@@ -134,7 +144,10 @@
     © 2026 NGUYỄN THÀNH LONG
 </footer>
 
-</body>
-</html>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800, once: true });
+</script>
 
+</body>
 </html>

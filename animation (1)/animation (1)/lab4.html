@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 4 - Nguyễn Thành Long</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"> <style>
+        body { font-family: sans-serif; margin: 0; overflow-x: hidden; }
+        section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; border-bottom: 2px dashed #ccc; }
+        .box { width: 100px; height: 100px; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 10px; margin: 10px; }
+        .box-red { background: #e74c3c; }
+        .box-green { background: #2ecc71; }
+        .box-blue { background: #3498db; }
+        .gsap-box { background: #e67e22; opacity: 0; } /* [cite: 139] */
+        .card { width: 150px; height: 200px; background: #8e44ad; color: white; display: flex; align-items: center; justify-content: center; border-radius: 10px; opacity: 0; transform: translateY(50px); margin: 10px; } /* [cite: 183] */
+        .header-anim { background: #2c3e50; color: white; padding: 20px; width: 100%; text-align: center; position: absolute; top: 0; }
+        .hero-cta { padding: 12px 30px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <section id="bai1">
+        <h2>Bài 1: AOS (Cuộn để xem)</h2>
+        <div style="display: flex;">
+            <div data-aos="fade-up" class="box box-red">Box 1</div> <div data-aos="fade-up" data-aos-delay="200" class="box box-green">Box 2</div> <div data-aos="fade-up" data-aos-delay="400" class="box box-blue">Box 3</div>
+        </div>
+    </section>
+
+    <section id="bai2">
+        <h1 class="animate__animated animate__bounceIn">BÀI 2: CHÀO MỪNG</h1> <p class="animate__animated animate__fadeInUp animate__delay-1s">Hiện sau 1 giây</p> </section>
+
+    <section id="bai3">
+        <h2>Bài 3: GSAP Basic</h2>
+        <div class="gsap-box box">GSAP</div> </section>
+
+    <section id="bai4" style="position: relative;">
+        <div class="header-anim">MENU HEADER</div> <h2 class="hero-title">Nội Dung Chính</h2>
+        <button class="hero-cta">MUA NGAY</button> </section>
+
+    <section id="bai5">
+        <h2>Bài 5: Stagger Effect</h2>
+        <div style="display: flex;">
+            <div class="card">SP 1</div>
+            <div class="card">SP 2</div>
+            <div class="card">SP 3</div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> <script>
+        AOS.init({ duration: 1000, once: true }); // Bài 1 [cite: 188, 191]
+
+        // Bài 3: GSAP [cite: 196]
+        gsap.to(".gsap-box", { x: 200, opacity: 1, duration: 1.5, delay: 0.5 });
+
+        // Bài 4: Timeline [cite: 212]
+        const tl = gsap.timeline();
+        tl.from(".header-anim", { y: -50, opacity: 0, duration: 0.8 })
+          .from(".hero-title", { y: 30, opacity: 0, duration: 0.8 }, "-=0.4")
+          .from(".hero-cta", { scale: 0, opacity: 0, duration: 0.8 }, "-=0.4");
+
+        // Bài 5: Stagger [cite: 222]
+        window.onscroll = () => {
+            const sec5 = document.querySelector('#bai5');
+            if(sec5.getBoundingClientRect().top < window.innerHeight / 1.3) {
+                gsap.to(".card", { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 });
+            }
+        };
+    </script>
+</body>
+</html>

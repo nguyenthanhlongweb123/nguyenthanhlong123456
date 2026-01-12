@@ -3,97 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 4 - Animation Libraries</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <title>NGUYỄN THÀNH LONG - DASHBOARD</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    
     <style>
-        /* Style cơ bản để trình diễn hiệu ứng */
-        body { font-family: sans-serif; margin: 0; padding-bottom: 300px; }
-        section { 
-            min-height: 80vh; border-bottom: 2px dashed #ccc; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
         }
-        .container-flex { display: flex; gap: 20px; }
-        .box { 
-            width: 100px; height: 100px; color: white; display: flex; 
-            align-items: center; justify-content: center; font-weight: bold; border-radius: 8px; 
+        header { text-align: center; margin-bottom: 60px; }
+        header h1 {
+            font-size: 3rem;
+            color: #4facfe;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
-        .box-red { background: #e74c3c; }
-        .box-green { background: #2ecc71; }
-        .box-blue { background: #3498db; }
-        .box-orange { background: #e67e22; opacity: 0; }
-        .header-anim { background: #2c3e50; color: white; padding: 20px; width: 100%; text-align: center; }
-        .hero-cta { padding: 12px 30px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .card-list { display: flex; gap: 20px; margin-top: 30px; }
-        .card { 
-            width: 120px; height: 160px; background: #8e44ad; color: white; 
-            display: flex; align-items: center; justify-content: center; border-radius: 10px;
-            opacity: 0; transform: translateY(50px); 
+        header p { color: #94a3b8; margin-top: 10px; }
+
+        /* FIX GRID: Dàn hàng ngang đều nhau */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
         }
+
+        .card {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #4ecca3;
+            background: #1f2a48;
+        }
+        .card h2 { color: #4ecca3; margin-bottom: 10px; position: relative; z-index: 2; }
+        .card p { color: #94a3b8; margin-bottom: 20px; position: relative; z-index: 2; }
+        .card strong { color: #fff; position: relative; z-index: 2; }
+
+        /* Số thứ tự chìm phía sau */
+        .card-number {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            font-size: 6rem;
+            color: rgba(255, 255, 255, 0.03);
+            font-weight: bold;
+            z-index: 1;
+        }
+        footer { margin-top: auto; padding: 40px; color: #64748b; font-size: 0.9rem; }
     </style>
 </head>
 <body>
+    <header>
+        <h1>MY ASSIGNMENTS</h1>
+        <p>Nguyễn Thành Long | WE-MĐ06</p>
+    </header>
 
-    <section id="bai1">
-        <h2>Bài 1: Hiệu ứng AOS (Cuộn xuống)</h2>
-        <div class="container-flex">
-            <div data-aos="fade-up" class="box box-red">Box 1</div>
-            <div data-aos="fade-up" data-aos-delay="200" class="box box-green">Box 2</div>
-            <div data-aos="fade-up" data-aos-delay="400" class="box box-blue">Box 3</div>
-        </div>
-    </section>
+    <main class="container">
+        <a href="b1.html" class="card" data-aos="fade-up">
+            <div class="card-number">01</div>
+            <h2>B1 HTML</h2>
+            <p>Cấu trúc HTML cơ bản</p>
+            <strong>View →</strong>
+        </a>
+        <a href="lab1.html" class="card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-number">02</div>
+            <h2>LAB 1</h2>
+            <p>Transition & Animation</p>
+            <strong>View →</strong>
+        </a>
+        <a href="lab2.html" class="card" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-number">03</div>
+            <h2>LAB 2</h2>
+            <p>CSS Animation nâng cao</p>
+            <strong>View →</strong>
+        </a>
+        <a href="lab4.html" class="card" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-number">04</div>
+            <h2>LAB 4</h2>
+            <p>JS Animation Libraries</p>
+            <strong>View →</strong>
+        </a>
+    </main>
 
-    <section id="bai2">
-        <h1 class="animate__animated animate__bounceIn">BÀI 2: CHÀO MỪNG ĐẾN WEBSITE</h1>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s">Hiệu ứng tự động khi load trang</p>
-    </section>
-
-    <section id="bai3-4">
-        <div class="header-anim">MENU HEADER</div>
-        <h2>Bài 3 & 4: GSAP Animation</h2>
-        <div class="gsap-box box box-orange">GSAP</div>
-        <div class="hero-content" style="margin-top:20px">
-            <h2 class="hero-title">Nội Dung Chính</h2>
-            <button class="hero-cta">MUA NGAY</button>
-        </div>
-    </section>
-
-    <section id="bai5">
-        <h2>Bài 5: Sản phẩm (Hiệu ứng Stagger)</h2>
-        <div class="card-list">
-            <div class="card">SP 1</div>
-            <div class="card">SP 2</div>
-            <div class="card">SP 3</div>
-            <div class="card">SP 4</div>
-        </div>
-    </section>
+    <footer>© 2026 NGUYỄN THÀNH LONG</footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    <script>
-        // --- BÀI 1: Khởi tạo AOS ---
-        AOS.init({ duration: 1000, once: true });
-
-        // --- BÀI 3: GSAP Basic Tween ---
-        window.addEventListener('load', () => {
-            gsap.to(".gsap-box", { x: 150, opacity: 1, duration: 1.5, delay: 0.5, ease: "power2.out" });
-        });
-
-        // --- BÀI 4: GSAP Timeline ---
-        const tl = gsap.timeline({ defaults: { duration: 0.8, ease: "power2.out" } });
-        tl.from(".header-anim", { y: -50, opacity: 0 })
-          .from(".hero-title", { y: 30, opacity: 0 }, "-=0.4")
-          .from(".hero-cta", { scale: 0, opacity: 0 }, "-=0.2");
-
-        // --- BÀI 5: GSAP Stagger Scroll ---
-        window.addEventListener('scroll', () => {
-            const section5 = document.querySelector('#bai5');
-            if (section5 && section5.getBoundingClientRect().top < window.innerHeight / 1.3) {
-                gsap.to(".card", { opacity: 1, y: 0, duration: 0.6, stagger: 0.2, ease: "back.out(1.7)" });
-            }
-        });
-    </script>
+    <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>

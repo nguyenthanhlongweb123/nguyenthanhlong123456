@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGUYỄN THÀNH LONG - HOME</title>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
     <style>
-        /* Reset CSS cơ bản */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #1a1a2e; /* Màu nền tối hiện đại */
+            background: #1a1a2e;
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -28,7 +26,7 @@
         }
 
         header h1 {
-            font-size: clamp(2rem, 8vw, 2.8rem);
+            font-size: 2.8rem;
             background: linear-gradient(to right, #00d2ff, #3a7bd5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -41,39 +39,31 @@
             font-size: 1.2rem;
         }
 
-        /* --- SỬA LỖI GRID: Đảm bảo các thẻ dàn đều và không bị lệch trái --- */
         .container {
             display: grid;
-            /* Tự động chia cột linh hoạt: tối thiểu 260px, tối đa dàn đều 1fr */
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
             width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
+            max-width: 1000px;
         }
 
         .card {
             background: #16213e;
             border: 1px solid #0f3460;
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px;
             text-align: center;
             text-decoration: none;
             color: #fff;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.4s;
             position: relative;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 220px;
         }
 
         .card:hover {
             transform: translateY(-12px);
             border-color: #4ecca3;
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-            background: #1f2a48;
         }
 
         .card h2 {
@@ -91,28 +81,43 @@
             z-index: 2;
         }
 
-        /* Số thứ tự trang trí chìm phía sau */
         .card-number {
             position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 6rem;
-            color: rgba(255,255,255,0.04);
+            top: -10px;
+            right: 10px;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.03);
             font-weight: bold;
             z-index: 1;
-            user-select: none;
+        }
+
+        strong {
+            display: inline-block;
+            color: #4ecca3;
+            transition: 0.3s;
+        }
+
+        .card:hover strong {
+            letter-spacing: 2px;
         }
 
         footer {
             margin-top: auto;
-            padding: 40px 0;
+            padding-top: 40px;
             color: #64748b;
             font-size: 0.9rem;
+            text-align: center;
         }
 
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive cho mobile */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .container { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -126,55 +131,46 @@
 
 <main class="container">
 
-    <a href="b1.html" class="card" data-aos="fade-up">
+    <a href="b1.html" class="card">
         <div class="card-number">01</div>
         <h2>B1 HTML</h2>
         <p>Cấu trúc HTML cơ bản</p>
         <strong>View →</strong>
     </a>
 
-    <a href="lab1.html" class="card" data-aos="fade-up" data-aos-delay="100">
+    <a href="lab1.html" class="card">
         <div class="card-number">02</div>
         <h2>LAB 1</h2>
         <p>Transition & Animation</p>
         <strong>View →</strong>
     </a>
 
-    <a href="lab2.html" class="card" data-aos="fade-up" data-aos-delay="200">
+    <a href="lab2.html" class="card">
         <div class="card-number">03</div>
         <h2>LAB 2</h2>
         <p>CSS Animation nâng cao</p>
         <strong>View →</strong>
     </a>
 
-    <a href="lab3.html" class="card" data-aos="fade-up" data-aos-delay="300">
+    <a href="lab3.html" class="card">
         <div class="card-number">04</div>
         <h2>LAB 3</h2>
-        <p>Layout nâng cao (Flexbox/Grid)</p>
+        <p>Responsive Layout & Grid</p>
         <strong>View →</strong>
     </a>
 
-    <a href="lab4.html" class="card" data-aos="fade-up" data-aos-delay="400">
+    <a href="lab4.html" class="card">
         <div class="card-number">05</div>
         <h2>LAB 4</h2>
-        <p>JS Animation Libraries</p>
+        <p>JavaScript & Logic cơ bản</p>
         <strong>View →</strong>
     </a>
 
 </main>
 
 <footer>
-    © 2026 NGUYỄN THÀNH LONG - FPT POLYTECHNIC
+    © 2026 NGUYỄN THÀNH LONG - All Rights Reserved
 </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ 
-        duration: 800, 
-        once: true,
-        easing: 'ease-out'
-    });
-</script>
 
 </body>
 </html>

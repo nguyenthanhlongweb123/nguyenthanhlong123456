@@ -3,113 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 4 - Nguyễn Thành Long - Animation Skills</title>
+    <title>Lab 4 - Nguyễn Thành Long</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        /* TỔNG QUAN GIAO DIỆN */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: #f8f9fa; 
+            color: #2d3436; 
+            overflow-x: hidden;
+        }
+
         section { 
             min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
-            border-bottom: 1px solid #eee;
-            padding: 50px 20px;
+            border-bottom: 2px solid #edf2f7;
+            padding: 60px 20px;
+            position: relative;
         }
-        
-        /* Style tiêu đề Lab */
-        .lab-title { color: #2c3e50; font-size: 2.5rem; margin-bottom: 10px; text-align: center; }
-        .lesson-name { color: #7f8c8d; font-size: 1.2rem; margin-bottom: 40px; }
 
-        /* Các thành phần minh họa */
-        .box { width: 100px; height: 100px; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; border-radius: 12px; margin: 10px; }
-        .box-red { background: #e74c3c; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); }
-        .box-green { background: #2ecc71; box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3); }
-        .box-blue { background: #3498db; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3); }
-        
-        .gsap-box { background: #e67e22; opacity: 0; }
-        .card { width: 160px; height: 220px; background: #8e44ad; color: white; display: flex; align-items: center; justify-content: center; border-radius: 15px; opacity: 0; transform: translateY(50px); margin: 15px; font-size: 1.1rem; }
-        
-        .header-anim { background: #2c3e50; color: white; padding: 20px; width: 100%; text-align: center; position: absolute; top: 0; font-weight: bold; letter-spacing: 2px; }
-        .hero-cta { padding: 15px 40px; background: #e74c3c; color: white; border: none; border-radius: 30px; cursor: pointer; margin-top: 25px; font-weight: bold; transition: 0.3s; }
-        .hero-cta:hover { background: #c0392b; transform: scale(1.05); }
+        .lab-title { 
+            color: #6c5ce7; 
+            font-size: 2.5rem; 
+            margin-bottom: 5px; 
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .lesson-name { 
+            color: #636e72; 
+            margin-bottom: 40px; 
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* BÀI 1: AOS BOXES */
+        .box-container { display: flex; gap: 20px; }
+        .box { 
+            width: 100px; height: 100px; color: white; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: bold; border-radius: 15px; 
+        }
+        .box-red { background: #ff7675; box-shadow: 0 4px 15px rgba(255, 118, 117, 0.3); }
+        .box-green { background: #55efc4; box-shadow: 0 4px 15px rgba(85, 239, 196, 0.3); }
+        .box-blue { background: #74b9ff; box-shadow: 0 4px 15px rgba(116, 185, 255, 0.3); }
+
+        /* BÀI 3: GSAP SINGLE */
+        .gsap-box { 
+            background: #fdcb6e; 
+            color: #d35400; 
+            opacity: 0; 
+            box-shadow: 0 4px 15px rgba(253, 203, 110, 0.3);
+        }
+
+        /* BÀI 4: TIMELINE COMPONENTS */
+        .header-anim { 
+            background: #2d3436; color: #fab1a0; 
+            padding: 15px; width: 100%; 
+            position: absolute; top: 0; 
+            text-align: center; font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .hero-title { font-size: 3rem; color: #2d3436; margin: 20px 0; }
+        .hero-cta { 
+            padding: 15px 45px; background: #d63031; 
+            color: white; border: none; border-radius: 50px; 
+            cursor: pointer; font-weight: bold; font-size: 1rem;
+            box-shadow: 0 6px 20px rgba(214, 48, 49, 0.3);
+        }
+
+        /* BÀI 5: 4 HÌNH VUÔNG STAGGER */
+        .square-container { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+        }
+        @media (min-width: 600px) {
+            .square-container { grid-template-columns: repeat(4, 1fr); }
+        }
+        .square { 
+            width: 140px; 
+            height: 140px; 
+            background: #6c5ce7; 
+            color: white; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-radius: 20px; 
+            opacity: 0; 
+            transform: translateY(40px);
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.2);
+        }
     </style>
 </head>
 <body>
 
     <section id="bai1">
         <h1 class="lab-title">BÀI 1</h1>
-        <p class="lesson-name">Kỹ thuật Scroll-to-Reveal với Thư viện AOS</p>
-        <div style="display: flex;">
-            <div data-aos="fade-up" class="box box-red">Phần tử A</div>
-            <div data-aos="fade-up" data-aos-delay="200" class="box box-green">Phần tử B</div>
-            <div data-aos="fade-up" data-aos-delay="400" class="box box-blue">Phần tử C</div>
+        <p class="lesson-name">Kỹ thuật Scroll-to-Reveal (AOS Library)</p>
+        <div class="box-container">
+            <div data-aos="fade-right" class="box box-red">01</div>
+            <div data-aos="fade-up" data-aos-delay="200" class="box box-green">02</div>
+            <div data-aos="fade-left" data-aos-delay="400" class="box box-blue">03</div>
         </div>
     </section>
 
     <section id="bai2">
         <h1 class="lab-title">BÀI 2</h1>
-        <p class="lesson-name">Sử dụng Thư viện CSS Animation (Animate.css)</p>
-        <h2 class="animate__animated animate__bounceIn" style="color: #2980b9; font-size: 3rem;">WELCOME !</h2>
-        <p class="animate__animated animate__fadeInUp animate__delay-1s">Hiệu ứng xuất hiện trễ 1 giây</p>
+        <p class="lesson-name">Thư viện CSS Animation (Animate.css)</p>
+        <h2 class="animate__animated animate__heartBeat animate__infinite" style="color: #e84393; font-size: 3.5rem;">CREATIVE</h2>
     </section>
 
     <section id="bai3">
         <h1 class="lab-title">BÀI 3</h1>
-        <p class="lesson-name">Làm quen với JavaScript Animation (GSAP Basic)</p>
-        <div class="gsap-box box">GSAP Core</div>
+        <p class="lesson-name">JavaScript Animation cơ bản (GSAP Basic)</p>
+        <div class="gsap-box box">GSAP</div>
     </section>
 
-    <section id="bai4" style="position: relative;">
-        <div class="header-anim">NAVIGATION MENU</div>
-        <h1 class="lab-title" style="margin-top: 50px;">BÀI 4</h1>
+    <section id="bai4">
+        <div class="header-anim">DASHBOARD NAVIGATION</div>
+        <h1 class="lab-title" style="margin-top: 40px;">BÀI 4</h1>
         <p class="lesson-name">Điều khiển chuỗi chuyển động (GSAP Timeline)</p>
-        <h2 class="hero-title">Creative Digital Content</h2>
-        <button class="hero-cta">KHÁM PHÁ NGAY</button>
+        <h2 class="hero-title">Digital Experience</h2>
+        <button class="hero-cta">XEM CHI TIẾT</button>
     </section>
 
     <section id="bai5">
         <h1 class="lab-title">BÀI 5</h1>
-        <p class="lesson-name">Hiệu ứng chuyển động so le (GSAP Stagger Effect)</p>
-        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-            <div class="card">Sản phẩm 01</div>
-            <div class="card">Sản phẩm 02</div>
-            <div class="card">Sản phẩm 03</div>
+        <p class="lesson-name">Hiệu ứng Stagger với 4 Hình vuông (GSAP Scroll)</p>
+        <div class="square-container">
+            <div class="square" style="background: #6c5ce7;">VUÔNG 1</div>
+            <div class="square" style="background: #a29bfe;">VUÔNG 2</div>
+            <div class="square" style="background: #8e44ad;">VUÔNG 3</div>
+            <div class="square" style="background: #4834d4;">VUÔNG 4</div>
         </div>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
     <script>
-        // Init AOS
-        AOS.init({ duration: 1000, once: true });
+        // Khởi tạo AOS
+        AOS.init({ duration: 1000, once: false });
 
-        // Bài 3: GSAP đơn lẻ
-        gsap.to(".gsap-box", { x: 150, opacity: 1, duration: 1.5, delay: 0.5, ease: "back.out(1.7)" });
+        // Bài 3: GSAP
+        gsap.to(".gsap-box", { 
+            x: 150, 
+            opacity: 1, 
+            duration: 1.2, 
+            delay: 0.5, 
+            ease: "back.out(1.7)" 
+        });
 
         // Bài 4: GSAP Timeline
         const tl = gsap.timeline();
         tl.from(".header-anim", { y: -60, opacity: 0, duration: 0.8 })
-          .from(".hero-title", { y: 40, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.3")
-          .from(".hero-cta", { scale: 0, opacity: 0, duration: 0.8, ease: "elastic.out(1, 0.5)" }, "-=0.4");
+          .from(".hero-title", { x: -50, opacity: 0, duration: 0.7 }, "-=0.3")
+          .from(".hero-cta", { scale: 0, opacity: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" }, "-=0.2");
 
-        // Bài 5: Scroll Trigger (Manual)
-        window.addEventListener('scroll', () => {
-            const sec5 = document.querySelector('#bai5');
-            const rect = sec5.getBoundingClientRect();
-            if(rect.top < window.innerHeight / 1.5) {
-                gsap.to(".card", { 
+        // Bài 5: Stagger khi Scroll
+        const handleScroll = () => {
+            const section5 = document.querySelector('#bai5');
+            const triggerBottom = window.innerHeight / 1.2;
+            const sectionTop = section5.getBoundingClientRect().top;
+
+            if (sectionTop < triggerBottom) {
+                gsap.to(".square", { 
                     opacity: 1, 
                     y: 0, 
-                    duration: 0.7, 
+                    duration: 0.8, 
                     stagger: 0.2, 
-                    ease: "power3.out" 
+                    ease: "power4.out" 
                 });
+                // Sau khi chạy xong có thể gỡ event để tối ưu hiệu năng
+                window.removeEventListener('scroll', handleScroll);
             }
-        });
+        };
+
+        window.addEventListener('scroll', handleScroll);
     </script>
 </body>
-</html>
+</html>>

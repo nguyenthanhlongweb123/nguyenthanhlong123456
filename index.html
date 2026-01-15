@@ -1,158 +1,206 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGUYỄN THÀNH LONG - DASHBOARD</title>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-
+    <title>LONG BARCA SHOP - QUẢN LÝ BÀI TẬP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --barca-blue: #004d98;
+            --barca-red: #a50044;
+            --barca-gold: #edbb00;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: #0f172a; /* Nền tối chuyên nghiệp */
-            color: #fff;
-            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
             display: flex;
-            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 280px;
+            /* Gradient dọc đặc trưng của Barca */
+            background: linear-gradient(180deg, var(--barca-blue) 50%, var(--barca-red) 50%);
+            color: white;
+            padding: 40px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .profile { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            border-bottom: 2px solid var(--barca-gold);
+            padding-bottom: 20px; 
+        }
+        .profile h2 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--barca-gold); }
+
+        .menu ul { list-style: none; }
+        .menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .menu a:hover {
+            background: var(--barca-gold);
+            color: var(--barca-blue);
+        }
+
+        .content { flex: 1; padding: 40px; }
+        
+        .header-shop {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            padding: 50px 20px;
+            border-left: 10px solid var(--barca-red);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+        .header-shop h1 { font-family: 'Oswald', sans-serif; color: var(--barca-blue); }
 
-        header h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(to right, #edbb00, #a50044);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        header p {
-            margin-top: 10px;
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
-
-        /* GRID CHỨA CÁC THẺ QUẢN LÝ */
-        .container {
+        .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            width: 100%;
-            max-width: 1100px;
         }
 
         .card {
-            background: #1e293b;
-            border: 1px solid #334155;
+            background: var(--white);
             border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.4s;
-            position: relative;
             overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #ddd;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: #edbb00;
-            box-shadow: 0 10px 30px rgba(237, 187, 0, 0.2);
+        .card:hover { transform: translateY(-10px); }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background: #eee;
+            display: flex;
+            align-items: center;            justify-content: center;
+            font-size: 3.5rem;
         }
 
-        .card h2 {
-            color: #edbb00;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
+        .card-body { padding: 20px; }
+        .card-body h3 { color: var(--barca-blue); margin-bottom: 10px; font-family: 'Oswald', sans-serif; }
+        .card-body p { font-size: 0.9rem; color: #666; margin-bottom: 20px; line-height: 1.4; }
 
-        .card p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-        }
-
-        .status {
-            font-size: 0.7rem;
-            padding: 4px 12px;
-            border-radius: 20px;
-            background: #10b981; /* Màu xanh cho bài đã xong */
+        .btn-shop {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--barca-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
-        .card-number {
-            position: absolute;
-            top: -5px;
-            right: 10px;
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.03);
-            font-weight: bold;
-        }
+        .btn-shop:hover { background: var(--barca-blue); }
 
-        footer {
-            margin-top: auto;
-            padding: 40px;
-            color: #64748b;
-            font-size: 0.8rem;
+        .doc-section { margin-top: 40px; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .doc-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .doc-table th { text-align: left; padding: 12px; background: var(--bg-light); color: var(--barca-blue); font-family: 'Oswald', sans-serif; }
+        .doc-table td { padding: 12px; border-bottom: 1px solid #eee; }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .content { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-<header data-aos="fade-down">
-    <h1>ASSIGNMENT MANAGER</h1>
-    <p>Nguyễn Thành Long | Lớp WE-MĐ06</p>
-</header>
+    <aside class="sidebar">
+        <div class="profile">
+            <h2>LONG BARCA SHOP</h2>
+            <p>Football Shirt 2026 Project</p>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">🏠 Home Shop</a></li>
+                <li><a href="animation (1)/lab1/index1.html">👕 Categories Jerseys</a></li>
+                <li><a href="lab 1 to 4/index.html">📂 Lab Exercises 1-4</a></li>
+                <li><a href="animation (1)/index.html">🎬 Web Effects</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-<main class="container">
+    <main class="content">
+        <header class="header-shop">
+            <h1>Hệ thống quản lý Shop & Lab</h1>
+            <div style="font-weight: bold; color: var(--barca-red);">M06 - Web Design</div>
+        </header>
 
-    <a href="lab1.html" class="card" data-aos="fade-up">
-        <div class="card-number">01</div>
-        <h2>LAB 1</h2>
-        <p>Barca Kicks Store - Grid & Marquee</p>
-        <span class="status">HOÀN THÀNH</span>
-    </a>
+        <section class="dashboard-grid">
+            <div class="card">
+                <div class="card-img">👕</div>
+                <div class="card-body">
+                    <h3>Home Kit 2025/26</h3>
+                    <p>Thiết kế áo đấu sân nhà với sọc xanh đỏ truyền thống. Bài tập về Layout sản phẩm chuyên nghiệp.</p>
+                    <a href="animation (1)/lab1/index1.html" class="btn-shop">Xem dự án</a>
+                </div>
+            </div>
 
-    <a href="lab2.html" class="card" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-number">02</div>
-        <h2>LAB 2</h2>
-        <p>CSS Animation & Transition nâng cao</p>
-        <span class="status" style="background: #64748b;">ĐANG ĐỢI</span>
-    </a>
+            <div class="card">
+                <div class="card-img">📂</div>
+                <div class="card-body">
+                    <h3>Kho lưu trữ Lab 1-4</h3>
+                    <p>Tổng hợp các bài tập cơ bản về HTML/CSS đã thực hiện: Định dạng văn bản, Table, Layout cơ bản.</p>
+                    <a href="lab 1 to 4/index.html" class="btn-shop">Mở thư mục</a>
+                </div>
+            </div>
 
-    <a href="lab3.html" class="card" data-aos="fade-up" data-aos-delay="200">
-        <div class="card-number">03</div>
-        <h2>LAB 3</h2>
-        <p>Responsive Web Design (RWD)</p>
-        <span class="status" style="background: #64748b;">ĐANG ĐỢI</span>
-    </a>
+            <div class="card" style="border-bottom: 5px solid var(--barca-gold);">
+                <div class="card-img">✨</div>
+                <div class="card-body">
+                    <h3>Web Effects</h3>
+                    <p>Các hiệu ứng chuyển động mượt mà sử dụng Transition và Keyframes cho website bán áo đấu.</p>
+                    <a href="animation (1)/index.html" class="btn-shop">Xem hiệu ứng</a>
+                </div>
+            </div>
+        </section>
 
-    <a href="lab4.html" class="card" data-aos="fade-up" data-aos-delay="300">
-        <div class="card-number">04</div>
-        <h2>LAB 4</h2>
-        <p>JavaScript & Animation Libraries</p>
-        <span class="status" style="background: #64748b;">ĐANG ĐỢI</span>
-    </a>
-
-</main>
-
-<footer>
-    © 2026 NGUYỄN THÀNH LONG - HỆ THỐNG QUẢN LÝ BÀI TẬP
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 800, once: true });
-</script>
+        <section class="doc-section">
+            <h2 style="font-family: 'Oswald', sans-serif; color: var(--barca-blue); margin-bottom: 10px;">Shop Document Management</h2>
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>Document Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>📄 Plans to sell Barca shirts.docx</td><td><span style="color: #28a745; font-weight: bold;">✔ Ready</span></td></tr>
+                    <tr><td>📄 Lab1.docx Warehouse List</td><td><span style="color: #28a745; font-weight: bold;">✔ Ready</span></td></tr>
+                    <tr><td>📄 Presentation content Barca.docx</td><td><span style="color: #fd7e14; font-weight: bold;">⌛ Waiting</span></td></tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
 
 </body>
 </html>

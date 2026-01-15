@@ -3,73 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANIMATION LABS - LONG BARCA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <title>LONG BARCA SHOP - QUẢN LÝ BÀI TẬP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --barca-blue: #004d98;
+            --barca-red: #a50044;
+            --barca-gold: #edbb00;
+            --bg-light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-        }
-
-        .container {
-            text-align: center;
-            width: 90%;
-            max-width: 1000px;
-        }
-
-        h1 {
             font-family: 'Roboto', sans-serif;
-            font-size: 32px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .button-group {
+            background-color: var(--bg-light);
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            min-height: 100vh;
         }
 
-        .btn {
-            background-color: #5cb85c;
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, var(--barca-blue) 50%, var(--barca-red) 50%);
+            color: white;
+            padding: 40px 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.2);
+        }
+
+        .profile { 
+            text-align: center; 
+            margin-bottom: 40px; 
+            border-bottom: 2px solid var(--barca-gold);
+            padding-bottom: 20px; 
+        }
+        .profile h2 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--barca-gold); }
+
+        .menu ul { list-style: none; }
+        .menu a {
             color: white;
             text-decoration: none;
-            padding: 12px 25px;
+            display: block;
+            padding: 15px;
             border-radius: 8px;
-            font-size: 18px;
-            min-width: 100px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .menu a:hover {
+            background: var(--barca-gold);
+            color: var(--barca-blue);
+        }
+
+        .content { flex: 1; padding: 40px; }
+        
+        .header-shop {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 10px solid var(--barca-red);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .header-shop h1 { font-family: 'Oswald', sans-serif; color: var(--barca-blue); }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border: 1px solid #ddd;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+
+        .card-body { padding: 20px; }
+        .card-body h3 { color: var(--barca-blue); margin-bottom: 10px; font-family: 'Oswald', sans-serif; }
+        .card-body p { font-size: 0.9rem; color: #666; margin-bottom: 20px; line-height: 1.4; }
+
+        .btn-shop {
             display: inline-block;
-            transition: background-color 0.2s;
+            padding: 10px 20px;
+            background: var(--barca-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        .btn:hover {
-            background-color: #4cae4c;
-        }
+        .btn-shop:hover { background: var(--barca-blue); }
 
-        .btn-large {
-            min-width: 200px;
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .content { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>ANIMATION LABS</h1>
-        
-        <div class="button-group">
-            <a href="lab1/index.html" class="btn">Lab 1</a>
-            <a href="lab2/index.html" class="btn">Lab 2</a>
-            <a href="lab3/index.html" class="btn">Lab 3</a>
-            <a href="lab4/index.html" class="btn">Lab 4</a>
-            <a href="movie-landing-page/index.html" class="btn btn-large">movie-landing-page</a>
+    <aside class="sidebar">
+        <div class="profile">
+            <h2>LONG BARCA SHOP</h2>
+            <p>Football Shirt 2026 Project</p>
         </div>
-    </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index1.html">🏠 Home Shop</a></li>
+                <li><a href="animation (1)/lab1/index1.html">👕 Categories Jerseys</a></li>
+                <li><a href="lab 1 to 4/index.html">📂 Lab Exercises 1-4</a></li>
+                <li><a href="animation (1)/index.html">🎬 Web Effects</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="content">
+        <header class="header-shop">
+            <h1>Hệ thống quản lý Shop & Lab</h1>
+            <div style="font-weight: bold; color: var(--barca-red);">M06 - Web Design</div>
+        </header>
+
+        <section class="dashboard-grid">
+            <div class="card">
+                <div class="card-img">👕</div>
+                <div class="card-body">
+                    <h3>Home Kit 2025/26</h3>
+                    <p>Thiết kế áo đấu sân nhà với sọc xanh đỏ truyền thống. Bài tập về Layout sản phẩm chuyên nghiệp.</p>
+                    <a href="animation (1)/lab1/index1.html" class="btn-shop">Xem dự án</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">📂</div>
+                <div class="card-body">
+                    <h3>Kho lưu trữ Lab 1-4</h3>
+                    <p>Tổng hợp các bài tập cơ bản về HTML/CSS đã thực hiện: Định dạng văn bản, Table, Layout cơ bản.</p>
+                    <a href="lab 1 to 4/index.html" class="btn-shop">Mở thư mục</a>
+                </div>
+            </div>
+
+            <div class="card" style="border-bottom: 5px solid var(--barca-gold);">
+                <div class="card-img">✨</div>
+                <div class="card-body">
+                    <h3>Web Effects</h3>
+                    <p>Các hiệu ứng chuyển động mượt mà sử dụng Transition và Keyframes cho website bán áo đấu.</p>
+                    <a href="animation (1)/index.html" class="btn-shop">Xem hiệu ứng</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
 </body>
 </html>
